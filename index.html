@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Offline Player</title>
+</head>
+<body>
+  <h2>My Audio</h2>
+
+  <audio controls>
+    <source src="media/song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
