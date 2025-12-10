@@ -2,21 +2,46 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title>Embedded Player</title>
+  <title>Embed Loader</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body style="margin:0;padding:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#000;">
+<body style="margin:0; background:#0d0d0d; color:white; font-family:system-ui;">
 
-  <iframe 
-    src="https://audiomack.com//embed/gangsta-rap/song/nia-nia-nia" 
-    scrolling="no" 
-    width="100%" 
-    height="252" 
-    frameborder="0" 
-    title="Ni**a Ni**a Ni**a"
-    allow="autoplay"
-    style="max-width:500px;">
-  </iframe>
+  <h2 style="text-align:center; padding:20px;">🎧 임베디드 붙여넣기</h2>
+
+  <div style="display:flex; justify-content:center;">
+    <textarea
+      id="embedInput"
+      placeholder="여기에 iframe 임베디드 코드 그대로 붙여넣기"
+      style="width:90%; max-width:600px; height:120px; padding:10px;"
+    ></textarea>
+  </div>
+
+  <div style="text-align:center; margin:20px;">
+    <button onclick="loadEmbed()" style="padding:10px 20px; font-size:16px;">
+      불러오기
+    </button>
+  </div>
+
+  <div id="playerArea" style="display:flex; justify-content:center;"></div>
+
+  <script>
+    function loadEmbed() {
+      const input = document.getElementById("embedInput").value.trim();
+      const area = document.getElementById("playerArea");
+
+      // 기존 플레이어 제거
+      area.innerHTML = "";
+
+      if (!input) {
+        alert("임베디드 코드를 넣어라");
+        return;
+      }
+
+      // iframe 코드 그대로 삽입 (렌더링)
+      area.innerHTML = input;
+    }
+  </script>
 
 </body>
 </html>
